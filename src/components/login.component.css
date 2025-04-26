@@ -2,16 +2,25 @@
     margin-left: 15%;
 }
 
-.container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 90vh;
-}
 
 mat-card {
     width: 700px;
     height: 800px;
     padding: 20px;
     background-color: white;
+    border-top: 2px solid red;
+}
+
+mat-toolbar{
+    background-color: white;
+}
+
+.gray-color{
+    color: #828282;
+}
+
+.reset-password{
+    background-color: #F0F0F0;
+    border-left: 4px solid rgb(168, 32, 32);
+    font-size: 11px;
 }
