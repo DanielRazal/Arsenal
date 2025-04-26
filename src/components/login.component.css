@@ -1,0 +1,17 @@
+.logo {
+    margin-left: 15%;
+}
+
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 90vh;
+}
+
+mat-card {
+    width: 700px;
+    height: 800px;
+    padding: 20px;
+    background-color: white;
+}
