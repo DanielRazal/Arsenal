@@ -24,7 +24,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     MatButtonModule,
     MatToolbarModule,
     MatCardModule,
-    MatInputModule
+    MatInputModule,
   ],
   providers: [
     provideClientHydration(withEventReplay())
