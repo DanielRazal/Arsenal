@@ -25,6 +25,15 @@ mat-toolbar {
     font-size: 14px;
 }
 
-input[type="text"] {
+input[type="text"],
+input[type="password"] {
+    background-color: #F0F0F0;
+}
+
+.sign-in-button{
+    background-color: #93040c;
+}
+
+.gray-line{
     background-color: #F0F0F0;
 }
