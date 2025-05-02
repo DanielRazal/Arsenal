@@ -1,6 +1,4 @@
-.logo {
-    margin-left: 15%;
-}
+
 
 
 mat-card {
@@ -11,9 +9,7 @@ mat-card {
     border-top: 2px solid red;
 }
 
-mat-toolbar {
-    background-color: white;
-}
+
 
 .gray-color {
     color: #828282;

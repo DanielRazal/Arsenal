@@ -9,6 +9,6 @@ import { TitleService } from '../../services/title.service';
 })
 export class RegisterComponent {
 
-    constructor(private titleService: TitleService) {}
+  constructor(private titleService: TitleService) { }
 
 }
