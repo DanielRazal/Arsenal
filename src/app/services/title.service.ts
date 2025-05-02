@@ -20,8 +20,9 @@ export class TitleService {
       this.titleService.setTitle('Login | Arsenal');
     } else if(url.includes('register')){
       this.titleService.setTitle('Register | Arsenal');
-    }
-    else{
+    } else if(url.includes('sign-up')){
+      this.titleService.setTitle('Sign Up | Arsenal');
+    } else{
       this.titleService.setTitle('Arsenal');
     }
   }

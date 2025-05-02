@@ -1,0 +1,28 @@
+<app-common-html [index]="0"></app-common-html>
+
+<div class="flex items-center justify-center">
+
+    <mat-card class="bg-white w-full mt-10 !rounded-none">
+
+        <div class="text-center">
+            <h1 class="text-4xl font-bold mt-12">LET'S GET STARTED</h1>
+
+            <p class="lg:max-w-91.5 mx-auto gray-text mt-6">We need to know your date of birth in order to <br>
+                let you get started</p>
+        </div>
+
+        <div class="mt-10 ml-36">
+            <label class="font-bold" for="date">Date of birth</label>
+            <input [(ngModel)]="date"
+                class="h-14 rounded-lg text-base font-chapman block py-4 px-6 date-input w-md mt-5 border-none outline-none"
+                id="date" min="1825-05-02" max="2025-05-02" required type="date" name="date">
+
+            <p *ngIf="showError" class="text-sm mt-3 text-error">Please enter a valid date format</p>
+        </div>
+
+        <button (click)="onContinue()"
+            class="sign-in-button p-3 rounded-4xl text-center w-md ml-36 mr-auto cursor-pointer text-white font-serif mt-64"
+            type="button">CONTINUE</button>
+    </mat-card>
+
+</div>

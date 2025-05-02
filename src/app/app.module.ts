@@ -12,6 +12,8 @@ import { MatToolbarModule } from '@angular/material/toolbar';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { RegisterComponent } from './components/register/register.component';
 import { CommonHtmlComponent } from './common-html/common-html.component';
+import { SignUpComponent } from './components/sign-up/sign-up.component';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -19,6 +21,7 @@ import { CommonHtmlComponent } from './common-html/common-html.component';
     LoginComponent,
     RegisterComponent,
     CommonHtmlComponent,
+    SignUpComponent,
   ],
   imports: [
     BrowserModule,
@@ -29,6 +32,7 @@ import { CommonHtmlComponent } from './common-html/common-html.component';
     MatToolbarModule,
     MatCardModule,
     MatInputModule,
+    FormsModule
   ],
   providers: [
     provideClientHydration(withEventReplay())
