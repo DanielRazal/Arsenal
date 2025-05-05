@@ -24,3 +24,16 @@ mat-card {
     color: #E30613;
     font-size: 14px;
 }
+
+.error-border {
+    border: 1px solid #de0411;
+    background-color: #E306131A;
+}
+
+.gray-line{
+    background-color: #E1E1E1;
+}
+
+.font-size-title{
+    font-size: 32px;
+}

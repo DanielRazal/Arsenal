@@ -10,8 +10,16 @@ export class SignUpComponent {
 
   date: string = '';
   showError: boolean = false;
+  showSecondCard: boolean = false;
 
   onContinue() {
+    this.validateDate();
+    if (!this.showError) {
+      this.showSecondCard = true;
+    }
+  }
+
+  validateDate() {
     this.showError = this.date === '' || this.date === null;
   }
 }

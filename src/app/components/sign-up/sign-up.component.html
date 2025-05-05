@@ -1,6 +1,6 @@
 <app-common-html [index]="0"></app-common-html>
 
-<div class="flex items-center justify-center">
+<!-- <div *ngIf="!showSecondCard" class="flex items-center justify-center">
 
     <mat-card class="bg-white w-full mt-10 !rounded-none">
 
@@ -13,7 +13,7 @@
 
         <div class="mt-10 ml-36">
             <label class="font-bold" for="date">Date of birth</label>
-            <input [(ngModel)]="date"
+            <input [(ngModel)]="date" [ngClass]="{'error-border': showError}" (ngModelChange)="validateDate()"
                 class="h-14 rounded-lg text-base font-chapman block py-4 px-6 date-input w-md mt-5 border-none outline-none"
                 id="date" min="1825-05-02" max="2025-05-02" required type="date" name="date">
 
@@ -23,6 +23,24 @@
         <button (click)="onContinue()"
             class="sign-in-button p-3 rounded-4xl text-center w-md ml-36 mr-auto cursor-pointer text-white font-serif mt-64"
             type="button">CONTINUE</button>
+    </mat-card>
+
+</div> -->
+
+<!-- *ngIf="showSecondCard" -->
+<div class="flex items-center justify-center">
+
+    <mat-card class="bg-white w-full mt-10 !rounded-none">
+
+        <div class="relative flex gap-1 ml-auto mr-auto top-5">
+            <div class="h-2 w-[220px] gray-line rounded-l-lg"></div>
+            <div class="h-2 w-[220px] gray-line rounded-r-lg"></div>
+        </div>
+
+        <div class="mt-12">
+            <h1 class="text-center font-bold font-size-title">ENTER DETAILS</h1>
+        </div>
+
     </mat-card>
 
 </div>
