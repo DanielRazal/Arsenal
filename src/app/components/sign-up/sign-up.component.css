@@ -37,3 +37,17 @@ mat-card {
 .font-size-title{
     font-size: 32px;
 }
+
+.secondMatCard{
+    height: 900px;
+}
+
+.eye-icon{
+    top: 40%;
+    left: 69%;
+}
+
+.custom-scrollbar {
+    overflow-y: auto;
+    max-height: 80vh;
+}

@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { TitleService } from '../../services/title.service';
 
 @Component({
   selector: 'app-sign-up',
@@ -12,6 +13,8 @@ export class SignUpComponent {
   showError: boolean = false;
   showSecondCard: boolean = false;
 
+  constructor(private titleService: TitleService) { }
+
   onContinue() {
     this.validateDate();
     if (!this.showError) {
@@ -21,5 +24,11 @@ export class SignUpComponent {
 
   validateDate() {
     this.showError = this.date === '' || this.date === null;
+  }
+
+  passwordVisible: boolean = false;
+
+  togglePasswordVisibility() {
+    this.passwordVisible = !this.passwordVisible
   }
 }

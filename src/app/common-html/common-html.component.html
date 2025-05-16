@@ -1,6 +1,6 @@
 <mat-toolbar color="primary" *ngIf="index === 0">
 
-    <svg class="logo" width="95" height="36" viewBox="0 0 256 96" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <svg class="logo cursor-pointer" (click)="goToLogin()" width="95" height="36" viewBox="0 0 256 96" fill="none" xmlns="http://www.w3.org/2000/svg">
         <title>Arsenal - Cannon logo</title>
         <g clip-path="url(#clip0_2552_27695)">
             <path fill-rule="evenodd" clip-rule="evenodd"
@@ -14,7 +14,6 @@
         </defs>
     </svg>
 </mat-toolbar>
-
 
 
 <div class="flex space-x-4 mt-4 ml-36" *ngIf="index === 1">

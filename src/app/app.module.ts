@@ -14,6 +14,7 @@ import { RegisterComponent } from './components/register/register.component';
 import { CommonHtmlComponent } from './common-html/common-html.component';
 import { SignUpComponent } from './components/sign-up/sign-up.component';
 import { FormsModule } from '@angular/forms';
+import { MatTooltipModule } from '@angular/material/tooltip';
 
 @NgModule({
   declarations: [
@@ -32,7 +33,8 @@ import { FormsModule } from '@angular/forms';
     MatToolbarModule,
     MatCardModule,
     MatInputModule,
-    FormsModule
+    FormsModule,
+    MatTooltipModule,
   ],
   providers: [
     provideClientHydration(withEventReplay())

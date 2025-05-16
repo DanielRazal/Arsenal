@@ -1,4 +1,5 @@
 import { Component, Input } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-common-html',
@@ -9,5 +10,11 @@ import { Component, Input } from '@angular/core';
 export class CommonHtmlComponent {
 
   @Input() index: number = -1;
+
+  constructor(private router: Router) {}
+  
+  goToLogin() {
+    this.router.navigate(['/login']);
+  }
 
 }
