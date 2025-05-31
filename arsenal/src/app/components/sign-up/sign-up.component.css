@@ -1,0 +1,53 @@
+mat-card {
+    width: 750px;
+    height: 700px;
+    padding: 20px;
+    background-color: white;
+    border-top: 2px solid red;
+    margin-top: 3%;
+}
+
+.gray-text{
+    font-size: 1.125rem;
+    color: #828282;
+}
+
+.date-input{
+    background-color: #F0F0F0;
+}
+
+.sign-in-button{
+    background-color: #93040c;
+}
+
+.text-error{
+    color: #E30613;
+    font-size: 14px;
+}
+
+.error-border {
+    border: 1px solid #de0411;
+    background-color: #E306131A;
+}
+
+.gray-line{
+    background-color: #E1E1E1;
+}
+
+.font-size-title{
+    font-size: 32px;
+}
+
+.secondMatCard{
+    height: 900px;
+}
+
+.eye-icon{
+    top: 40%;
+    left: 69%;
+}
+
+.custom-scrollbar {
+    overflow-y: auto;
+    max-height: 80vh;
+}

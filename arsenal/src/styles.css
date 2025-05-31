@@ -1,0 +1,53 @@
+@import "tailwindcss";
+
+html,
+body {
+    height: 100%;
+}
+
+body {
+    margin: 0;
+    font-family: Roboto, "Helvetica Neue", sans-serif;
+    background-color: #F0F0F0;
+}
+
+
+
+
+/* mat-card {
+    width: 700px;
+    height: 800px;
+    padding: 20px;
+    background-color: white;
+    border-top: 2px solid red;
+} */
+
+
+
+.gray-color {
+    color: #828282;
+}
+
+.reset-password {
+    background-color: #F0F0F0;
+    border-left: 4px solid rgb(168, 32, 32);
+    font-size: 14px;
+}
+
+input[type="text"],
+input[type="password"] {
+    background-color: #F0F0F0;
+}
+
+.sign-in-button{
+    background-color: #93040c;
+}
+
+.gray-line{
+    background-color: #F0F0F0;
+}
+
+.eye-icon{
+    top: 56.3%;
+    left: 74%;
+}
