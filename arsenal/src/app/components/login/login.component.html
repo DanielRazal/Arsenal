@@ -13,7 +13,7 @@
         </div>
 
         <div class="mt-6">
-            <form (ngSubmit)="onLogin()" #loginForm="ngForm">
+            <form (ngSubmit)="onLogin()">
                 <label class="font-bold ml-36" for="email">Email / Username</label>
                 <div class="mt-3 ml-36">
                     <input class="focus:outline-none p-4 rounded-lg w-9/12" [(ngModel)]="user.Email" type="text"

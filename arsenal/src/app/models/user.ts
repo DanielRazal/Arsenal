@@ -5,4 +5,5 @@ export class User {
   BirthDate: string = "";
   Email: string = "";
   Password: string = "";
+  errors: Array<string> = [];
 }

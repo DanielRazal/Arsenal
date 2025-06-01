@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { TitleService } from '../../services/title.service';
 import { User } from '../../models/user';
 import { UsersService } from '../../services/users.service';
+import { LoginService } from '../../services/login.service';
 
 @Component({
   selector: 'app-login',
@@ -11,7 +12,7 @@ import { UsersService } from '../../services/users.service';
 })
 export class LoginComponent {
 
-  constructor(private titleService: TitleService, private userService: UsersService) { }
+  constructor(private titleService: TitleService, private loginService: LoginService) { }
 
   passwordVisible: boolean = false;
   users: User[] = [];
@@ -22,12 +23,12 @@ export class LoginComponent {
   }
 
   onLogin() {
-    this.userService.loginUser(this.user).subscribe(
+    this.loginService.loginUser(this.user).subscribe(
       response => {
-        console.log('התחברות הצליחה:', response);
+        console.log('success:', response);
       },
       error => {
-        console.error('שגיאה:', error);
+        console.error('error:', error);
       }
     );
   }

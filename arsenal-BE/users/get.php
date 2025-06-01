@@ -1,11 +1,6 @@
 <?php
 require '../db.php';
 
-header('Content-Type: application/json');
-header("Access-Control-Allow-Origin: *");
-header("Access-Control-Allow-Methods: POST, GET, OPTIONS");
-header("Access-Control-Allow-Headers: Content-Type");
-
 function getAllUsers($conn)
 {
     try {
@@ -37,33 +32,37 @@ function getUserById($conn, $id)
     }
 }
 
-function loginUser($conn, $email, $password)
-{
-    try {
-        // Query to find the user with the given email.
-        $sql = "SELECT TOP 1 * FROM Users WHERE Email = ?";
-        $stmt = $conn->prepare($sql);
-        $stmt->execute([$email]);
-        $user = $stmt->fetch(PDO::FETCH_ASSOC);
-
-        // Verify password using password_verify for added security
-        if ($user && $password === $user['Password']) {
-            return ['success' => 'Login successful', 'user' => $user];
-        } else {
-            return ['error' => 'Invalid email or password'];
-        }
-    } catch (PDOException $e) {
-        return ['error' => $e->getMessage()];
-    }
-}
-
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $input = json_decode(file_get_contents('php://input'), true);
-    if (isset($input['Email'], $input['Password'])) {
-        $result = loginUser($conn, $input['Email'], $input['Password']);
+
+    if (!$input || !isset($input['action'])) {
+        $result = ['error' => 'Action not specified'];
     } else {
-        $result = ['error' => 'Invalid input'];
+        $action = $input['action'];
+
+        if ($action === 'register') {
+            if (isset($input['FirstName'], $input['LastName'], $input['Email'], $input['Password'], $input['BirthDate'])) {
+                $result = registerUser(
+                    $conn,
+                    $input['FirstName'],
+                    $input['LastName'],
+                    $input['Email'],
+                    $input['Password'],
+                    $input['BirthDate']
+                );
+            } else {
+                $result = ['error' => 'Missing registration data'];
+            }
+        } elseif ($action === 'login') {
+            if (isset($input['Email'], $input['Password'])) {
+                $result = loginUser($conn, $input['Email'], $input['Password']);
+            } else {
+                $result = ['error' => 'Missing login data'];
+            }
+        } else {
+            $result = ['error' => 'Unknown action'];
+        }
     }
     echo json_encode($result);
 } else {
