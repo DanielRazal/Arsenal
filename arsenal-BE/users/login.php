@@ -12,22 +12,12 @@ function loginUser($conn, $email, $password)
         if ($user && $password === $user['Password']) {
             return ['success' => 'Login successful', 'user' => $user];
         } else {
-            return ['error' => 'Invalid email or password'];
+            return ['errors' => 'Invalid email or password'];
         }
     } catch (PDOException $e) {
-        return ['error' => $e->getMessage()];
+        return ['errors' => $e->getMessage()];
     }
 }
-
-// if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-//     $input = json_decode(file_get_contents('php://input'), true);
-//     if (isset($input['Email'], $input['Password'])) {
-//         $result = loginUser($conn, $input['Email'], $input['Password']);
-//     } else {
-//         $result = ['error' => 'Invalid input'];
-//     }
-//     echo json_encode($result);
-// }
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $input = json_decode(file_get_contents('php://input'), true);

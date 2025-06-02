@@ -15,7 +15,9 @@ import { CommonHtmlComponent } from './common-html/common-html.component';
 import { SignUpComponent } from './components/sign-up/sign-up.component';
 import { FormsModule } from '@angular/forms';
 import { MatTooltipModule } from '@angular/material/tooltip';
-import { HttpClientModule } from '@angular/common/http';
+import { provideHttpClient, withFetch } from '@angular/common/http';
+import { UsersComponent } from './components/users/users.component';
+import { MatTableModule } from '@angular/material/table';
 
 @NgModule({
   declarations: [
@@ -24,10 +26,11 @@ import { HttpClientModule } from '@angular/common/http';
     RegisterComponent,
     CommonHtmlComponent,
     SignUpComponent,
+    UsersComponent,
   ],
   imports: [
     BrowserModule,
-    HttpClientModule, 
+    // HttpClientModule,
     AppRoutingModule,
     BrowserAnimationsModule,
     MatSnackBarModule,
@@ -37,9 +40,11 @@ import { HttpClientModule } from '@angular/common/http';
     MatInputModule,
     FormsModule,
     MatTooltipModule,
+    MatTableModule
   ],
   providers: [
-    provideClientHydration(withEventReplay())
+    // provideClientHydration(withEventReplay())
+    provideHttpClient(withFetch()),
   ],
   bootstrap: [AppComponent]
 })
