@@ -19,12 +19,33 @@ function loginUser($conn, $email, $password)
     }
 }
 
+// if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+//     $input = json_decode(file_get_contents('php://input'), true);
+//     if (isset($input['Email'], $input['Password'])) {
+//         $result = loginUser($conn, $input['Email'], $input['Password']);
+//     } else {
+//         $result = ['error' => 'Invalid input'];
+//     }
+//     echo json_encode($result);
+// }
+
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $input = json_decode(file_get_contents('php://input'), true);
-    if (isset($input['Email'], $input['Password'])) {
-        $result = loginUser($conn, $input['Email'], $input['Password']);
-    } else {
-        $result = ['error' => 'Invalid input'];
+
+    $errors = [];
+
+    $fields = ['Email', 'Password'];
+    foreach ($fields as $field) {
+        if (empty($input[$field])) {
+            $errors[] = "The field is required.";
+        }
     }
+
+    if (!empty($errors)) {
+        echo json_encode(['errors' => $errors]);
+        exit;
+    }
+
+    $result = loginUser($conn, $input['Email'], $input['Password']);
     echo json_encode($result);
 }

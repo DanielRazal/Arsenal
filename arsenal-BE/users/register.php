@@ -23,7 +23,24 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $fields = ['FirstName', 'LastName', 'Email', 'Password', 'BirthDate'];
     foreach ($fields as $field) {
         if (empty($input[$field])) {
-            $errors[] = "The field {$field} is required.";
+            $errors[] = "The field is required.";
+        } else {
+
+            $value = trim($input[$field]);
+
+            if (strlen($value) < 1 || strlen($value) > 50) {
+                $errors[] = "The $field must be between 1 and 50 characters.";
+            }
+        }
+
+        if (isset($input['Email'])) {
+            $stmt = $conn->prepare("SELECT COUNT(*) FROM Users WHERE Email = ?");
+            $stmt->execute([$input['Email']]);
+            $emailExists = $stmt->fetchColumn();
+
+            if ($emailExists && !in_array("The email already exists.", $errors)) {
+                $errors[] = "The email already exists.";
+            }
         }
     }
 

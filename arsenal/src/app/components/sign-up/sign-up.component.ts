@@ -11,6 +11,8 @@ import { User } from '../../models/user';
 })
 export class SignUpComponent {
 
+  // Todo: need to implementation the ngOnChange with the validations
+
   date: string = '';
   showError: boolean = false;
   showSecondCard: boolean = false;
@@ -41,26 +43,40 @@ export class SignUpComponent {
     this.registerService.registerUser(this.user).subscribe(
       response => {
         this.errorMessages = {};
-        if (response.errors) {
+        if (response.errors && response.errors.length > 0) {
           response.errors.forEach(err => {
-            if (err.includes('FirstName')) {
-              this.errorMessages['FirstName'] = err;
-            } else if (err.includes('LastName')) {
-              this.errorMessages['LastName'] = err;
-            } else if (err.includes('Email')) {
-              this.errorMessages['Email'] = err;
-            } else if (err.includes('Password')) {
-              this.errorMessages['Password'] = err;
+            if (err.includes('required')) {
+              Object.keys(this.user).forEach(key => {
+                if (!this.user[key as keyof User] || this.user[key as keyof User].toString().trim() === '') {
+                  this.errorMessages[key as keyof User] = err;
+                }
+              });
+            } else if (err.includes('characters')) {
+              Object.keys(this.user).forEach(key => {
+                this.errorMessages[key as keyof User] = err;
+              })
+            }
+            else if (err.includes('exists')) {
+              if (!this.errorMessages['Email']) {
+                this.errorMessages['Email'] = err;
+              }
             }
           });
         } else {
           this.errorMessages = {};
         }
-      },
+      }
     );
   }
 
-  updateError(field: string) {
-    delete this.errorMessages[field];
-  }
+
+  // updateError(field: keyof User) {
+  //   const value = this.user[field];
+  //   if (value && this.errorMessages[field].includes('required')) {
+  //     delete this.errorMessages[field];
+  //   }
+  //   else {
+  //     this.errorMessages[field] = "The field is required.";
+  //   }
+  // }
 }

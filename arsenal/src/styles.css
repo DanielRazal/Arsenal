@@ -39,15 +39,20 @@ input[type="password"] {
     background-color: #F0F0F0;
 }
 
-.sign-in-button{
+.sign-in-button {
     background-color: #93040c;
 }
 
-.gray-line{
+.gray-line {
     background-color: #F0F0F0;
 }
 
-.eye-icon{
+.eye-icon {
     top: 56.3%;
     left: 74%;
+}
+
+.text-error {
+    color: #E30613;
+    font-size: 14px;
 }

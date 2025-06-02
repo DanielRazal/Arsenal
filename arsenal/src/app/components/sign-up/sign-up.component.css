@@ -20,10 +20,7 @@ mat-card {
     background-color: #93040c;
 }
 
-.text-error{
-    color: #E30613;
-    font-size: 14px;
-}
+
 
 .error-border {
     border: 1px solid #de0411;
